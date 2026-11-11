@@ -405,17 +405,17 @@ ${[24, 56, 88, 120, 152, 184, 210].map(x => `<circle cx="${x}" cy="147" r="3.5" 
       part = only one part (the lid) is steel; none = never moves.
    sc: drawing size, t: top of the drawing (0–1), lid: height of the steel part for k=part. */
 const MAIN = [
-  {id:'salca', ad:'Salça kutusu', m:'çelik', k:'heavy', sc:1, t:.08},
+  {id:'salca', ad:'Salça kutusu', m:'çelik', k:'heavy', sc:1, t:.08, x:[.24, .76]},
   {id:'folyo', ad:'Folyo', m:'alüminyum', k:'none', sc:.85, t:.18},
   {id:'atac', ad:'Ataç', m:'çelik', k:'light', sc:.55, t:.12},
   {id:'gazete', ad:'Gazete', m:'kâğıt', k:'none', sc:1, t:.2},
   {id:'icecek', ad:'İçecek kutusu', m:'alüminyum', k:'none', sc:1, t:.15},
   {id:'sisekapagi', ad:'Şişe kapağı', m:'çelik', k:'light', sc:.5, t:.09},
   {id:'camkavanoz', ad:'Cam kavanoz', m:'cam', k:'none', sc:1, t:.12},
-  {id:'ton', ad:'Ton balığı kutusu', m:'çelik', k:'heavy', sc:.9, t:.28},
+  {id:'ton', ad:'Ton balığı kutusu', m:'çelik', k:'heavy', sc:.9, t:.28, x:[.12, .88]},
   {id:'petsise', ad:'Pet şişe', m:'plastik', k:'none', sc:1.1, t:.06},
   {id:'anahtar', ad:'Anahtar', m:'pirinç', k:'none', sc:.6, t:.28},
-  {id:'kavanozkapagi', ad:'Kavanoz kapağı', m:'çelik', k:'heavy', sc:.8, t:.29},
+  {id:'kavanozkapagi', ad:'Kavanoz kapağı', m:'çelik', k:'heavy', sc:.8, t:.29, x:[.12, .88]},
   {id:'yogurt', ad:'Yoğurt kabı', m:'plastik', k:'none', sc:.8, t:.2},
   {id:'karton', ad:'Karton kutu', m:'karton', k:'none', sc:1, t:.25},
   {id:'kapaklikavanoz', ad:'Kapaklı kavanoz', m:'cam, kapağı çelik', k:'part', sc:1, t:.08, lid:.16}
@@ -472,8 +472,8 @@ const ASK = {
   merak:[['Mıknatıs hakkında ne biliyorsun? Neyi merak ediyorsun?', 'soru sorma'], ['Mıknatısı daha önce nerede gördün? Ne yapıyordu?', 'gözlem'], ['Tesisteki büyük mıknatıs ne işe yarıyor olabilir?', 'açıklama'], ['Bunu nasıl öğrenebiliriz?', 'araştırma planlama']],
   oyna:[['Ne fark ettin? Ne oldu?', 'gözlem'], ['Ataçlar ne zaman hareket etti?', 'gözlem'], ['Boya ile ataç nasıl farklı davrandı?', 'karşılaştırma'], ['Neyi merak ettin? Panoya yazalım.', 'soru sorma']],
   tahmin:[['Sence bu ne yapar? Neden öyle düşünüyorsun?', 'tahmin, gerekçe'], ['Bu ikisini neden aynı kutuya koydunuz?', 'sınıflama'], ['Arkadaşın farklı düşünüyor. Sence neden?', 'gerekçe'], ['Emin olmak için ne yapabiliriz?', 'test etme']],
-  dene:[['Yaklaştırınca ne oldu? Ne fark ettin?', 'gözlem'], ['Dokunmadan önce bir şey oldu mu?', 'gözlem'], ['Ataç ile kutu nasıl farklı davrandı?', 'karşılaştırma'], ['Hep aynı mıknatısla, aynı yavaşlıkta mı denedik?', 'adil test'], ['Bir daha denesek aynı mı olur? Hadi bakalım.', 'test etme']],
-  sasirt:[['Önce ne düşünmüştük, şimdi ne gördük?', 'fikri yeniden düşünme'], ['Seni en çok ne şaşırttı?', 'betimleme'], ['Hangi deneme fikrini değiştirdi?', 'kanıt kullanma'], ['Bir daha denesek aynı mı olur?', 'test etme']],
+  dene:[['Yaklaştırınca ne oldu? Ne fark ettin?', 'gözlem'], ['Dokunmadan önce bir şey oldu mu?', 'gözlem'], ['Ataç ile kutu nasıl farklı davrandı?', 'karşılaştırma'], ['Hep aynı mıknatısla, aynı yavaşlıkta mı denedik?', 'adil test'], ['Hafif ataç da ağır kutu da geldi. Ağır olmak fark ediyor mu?', 'karşılaştırma'], ['Mıknatıs bozuldu mu? Ataçla bir daha deneyelim.', 'test etme'], ['Bir daha denesek aynı mı olur? Hadi bakalım.', 'test etme']],
+  sasirt:[['Önce ne düşünmüştük, şimdi ne gördük? Bu iki kutu neden farklı olabilir?', 'fikri yeniden düşünme, açıklama'], ['Seni en çok ne şaşırttı?', 'betimleme'], ['Hangi deneme fikrini değiştirdi?', 'kanıt kullanma'], ['Mıknatıs bozuldu mu? Ataçla bir daha deneyelim.', 'test etme'], ['Bir daha denesek aynı mı olur?', 'test etme']],
   metal:[['Bu iki kutu neden farklı olabilir?', 'açıklama'], ['Bu köşedekilerin ortak yanı ne?', 'sınıflama'], ['Parlak görünmek yetiyor mu? Ne gördün de öyle düşünüyorsun?', 'kanıt kullanma'], ['Şimdi kuralımızı nasıl söyleriz?', 'fikri yeniden düşünme']],
   gruplar:[['Gruplar aynı şeyi mi gördü?', 'karşılaştırma'], ['Sonuçlar farklıysa nasıl emin olabiliriz?', 'test etme'], ['Hangi denemeye güveniriz? Neden?', 'kanıt kullanma']],
   'u-tahmin':[['Kuralımız bunlarda da işler mi? Başka neyi denerdin?', 'tahmin'], ['Bu tahmininden ne kadar eminsin? Neden?', 'gerekçe'], ['Hangisi kuralımızı zorlayabilir?', 'tahmin']],
@@ -733,7 +733,7 @@ function renderMap(host) {
   const a = AREAS[mapSel];
   const nq = S.questions.length;
   const panel = a.open
-    ? `<div class="panel"><h2>Geri dönüşüm tesisi</h2>${svg(PLANT, '0 0 320 175').replace('<svg ', '<svg class="plant" ')}
+    ? `<div class="panel"><h2>Geri dönüşüm tesisi</h2><p class="lead">Bugün geri dönüşüm tesisini ziyaret ediyoruz. Tesisteki mıknatısın metalleri ayırmak için yardıma ihtiyacı var.</p>${svg(PLANT, '0 0 320 175').replace('<svg ', '<svg class="plant" ')}
         <p class="rq">“Mıknatısımız kutumuzdaki bütün metalleri çekip çıkarabilir mi?”</p>
         <div class="rowtop"><button type="button" class="say" data-say aria-label="Sesli oku">${svg(I.speaker, '0 0 60 60')}</button>
         <button type="button" class="btn2" data-play>${svg(I.pull, '0 0 60 60')}Mıknatısla oyna</button>
@@ -878,9 +878,12 @@ function setupStage(items, opt) {
   const anchor = () => wall ? [mx + mw * .92, my + mh * .5] : [mx + mw * .5, my + mh * .9];
   const box = it => { // the part of the object the magnet can act on
     const o = it.o, y0 = it.hy + o.t * it.s;
-    return o.k === 'part' ? [it.hx + it.s * .27, y0, it.s * .46, it.s * o.lid] : [it.hx, y0, it.s, it.s * (1 - o.t) * .9];
+    if (o.k === 'part') return [it.hx + it.s * .27, y0, it.s * .46, it.s * o.lid];
+    const [a, b] = o.x || [0, 1]; // heavy steel: only the visible body counts as contact
+    return [it.hx + it.s * a, y0, it.s * (b - a), it.s * (1 - o.t) * .9];
   };
-  const dist = (px, py, it) => { const [x, y, w, h] = box(it); const dx = Math.max(x - px, 0, px - (x + w)), dy = Math.max(y - py, 0, py - (y + h)); return Math.hypot(dx, dy); };
+  // hw: half the width of the magnet's poles, so contact means the drawn poles touch the drawn body
+  const dist = (px, py, it, hw = 0) => { const [x, y, w, h] = box(it); const dx = Math.max(x - (px + hw), 0, (px - hw) - (x + w)), dy = Math.max(y - py, 0, py - (y + h)); return Math.hypot(dx, dy); };
   let drag = false, minD = Infinity, ox = 0, oy = 0, chain = [];
   const physics = () => {
     let [ax, ay] = anchor();
@@ -910,7 +913,7 @@ function setupStage(items, opt) {
       const o = it.o, d = dist(ax, tipY, it);
       if (items.length === 1) minD = Math.min(minD, dist(ax, ay, it));
       const canJump = o.k === 'light' && d < (chain.length ? R * .6 : R);
-      const touch = (o.k === 'heavy' || o.k === 'part') && !chain.length && d < 6 + it.s * .03;
+      const touch = (o.k === 'heavy' || o.k === 'part') && !chain.length && dist(ax, tipY, it, mw * .32) < 4;
       if (canJump || touch) {
         it.stuck = true; chain.push(it); tick();
         it.el.style.transition = o.k === 'light' ? 'transform 90ms ease-out' : 'transform 120ms linear';
@@ -1082,6 +1085,13 @@ function renderTeacher() {
       <li>Tahmin ile kayıt uyuşmazsa nesne <b>Şaşırtanlar</b> rafına geçer. “Tekrar dene” düğmesi aynı nesneyi yeniden test ettirir.</li>
       <li>“İlk fikrimiz” ve “Şimdiki kuralımız”: grubun fikrini çocukların kendi sözleriyle siz yazarsınız. Seçenek sunulmaz, böylece oyun cevabı vermez.</li>
       <li>Mıknatıs: hafif çelik (ataç, şişe kapağı, çivi, vida) dokunmadan sıçrar ve yaklaştıkça kıpırdar; ağır çelik (salça ve ton balığı kutusu, kavanoz kapağı) dokununca yapışıp mıknatısla gider; kapaklı kavanozda yalnızca kapağa değince gelir; diğerleri kıpırdamaz. Kâğıt araya girince de çeker.</li></ul></div>
+    <div class="t-box"><h3>Beklenen fikirler ve öğretmenin yaptığı</h3><p>Fikirleri düzeltmiyoruz; çocuk kendi fikrini dener. Hedef fikir: “Bazıları çeker. Denemeden bilemeyiz.”</p><ul>
+      <li><b>“Parlak olanlar çeker.”</b> Görünüşe göre tahmin. “Neden?” seçtirin ve denetin; folyo ve içecek kutusu bu fikri sınar.</li>
+      <li><b>“Metaller çeker.”</b> Salça kutusu çekti, içecek kutusu çekmedi; ikisi de metal gibi. Metal mi? tablosunda “Metal gibi ama çekmedi” hücresine baktırın: “Bu iki kutu neden farklı olabilir?”</li>
+      <li><b>“Çok ağır, kaldıramaz.”</b> Çekmeyi kaldırmakla karıştırıyor. Hafif ataç da ağır kutu da çekiliyor: “Ağır olmak fark ediyor mu?”</li>
+      <li><b>“Mıknatıs yapışkan.”</b> Yapıştırıcı fikri. Ataç değmeden sıçrıyor: “Dokunmadan önce bir şey oldu mu?”</li>
+      <li><b>“Mıknatıs bozuldu!”</b> Eski kuralı koruyup mıknatısı suçluyor. Düzeltmek yerine ataçla bir daha denetin.</li>
+      <li><b>“Kapağı çekti, kavanozu çekmedi.”</b> Kanıt kullanıyor, nesnenin parçalarına bakıyor. Kapaklı kavanozu yandan ve kapaktan denetin; not alın (gösterge 4).</li></ul></div>
     <div class="t-box"><h3>Bilim notu</h3><ul>
       <li>Oyun tipik sonucu gösterir. Gerçek kutular ve kapaklar farklı olabilir; örneğin bazı ton balığı kutuları alüminyumdur. Çocuklar sorarsa bunu konuşun.</li>
       <li>Gördüğümüz (“mıknatıs kutuyu çekti”) ile açıklamayı (“farklı bir metal”) ayrı tutun.</li>
